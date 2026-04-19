@@ -1,0 +1,25 @@
+/* Footer.css — Premium */
+.footer {
+  border-top: 1px solid var(--border);
+  padding: 60px 2.5rem 40px;
+  margin-top: 20px;
+  position: relative; z-index: 1;
+  background: linear-gradient(180deg, transparent 0%, rgba(6,9,16,0.8) 100%);
+}
+.footer-inner { max-width: 1280px; margin: 0 auto; text-align: center; }
+.footer-logo {
+  font-family: var(--font-head); font-size: 1.5rem; font-weight: 700;
+  margin-bottom: 12px; letter-spacing: -0.02em;
+}
+.footer-logo span { color: var(--fire); }
+.footer-inner p { color: var(--text3); font-size: 13px; font-weight: 400; }
+.footer-links { display: flex; justify-content: center; gap: 28px; margin-top: 20px; flex-wrap: wrap; }
+.footer-links a { color: var(--text2); text-decoration: none; font-size: 13px; transition: color 0.2s; font-weight: 500; }
+.footer-links a:hover { color: var(--fire); }
+.footer-emergency {
+  margin-top: 24px; padding: 14px 24px;
+  background: rgba(255,59,92,0.07); border: 1px solid rgba(255,59,92,0.15);
+  border-radius: 12px; font-size: 13px; color: var(--red);
+  display: inline-block; font-weight: 500;
+}
+.footer-emergency strong { font-weight: 800; }

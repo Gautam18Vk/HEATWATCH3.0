@@ -1,0 +1,26 @@
+/* AwarenessSection.css — Premium */
+.zone-tabs { display: flex; gap: 8px; margin-bottom: 28px; flex-wrap: wrap; }
+.zone-tab {
+  padding: 10px 22px; border-radius: 10px; font-size: 13px; font-weight: 700;
+  cursor: pointer; border: 1px solid var(--border);
+  background: rgba(255,255,255,0.02); color: var(--text3);
+  font-family: var(--font-body); transition: all 0.2s; letter-spacing: 0.02em;
+}
+.zone-tab:hover { color: var(--text); border-color: var(--border2); }
+.zone-tab.active.tab-critical { background: var(--red-bg); color: var(--red); border-color: rgba(255,59,92,0.25); box-shadow: 0 0 16px rgba(255,59,92,0.1); }
+.zone-tab.active.tab-moderate { background: var(--yellow-bg); color: var(--yellow); border-color: rgba(255,184,0,0.25); }
+.zone-tab.active.tab-safe     { background: var(--green-bg); color: var(--green); border-color: rgba(16,217,122,0.25); }
+.tips-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px,1fr)); gap: 20px; }
+.tip-card { transition: all 0.25s; }
+.tip-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0,0,0,0.3); }
+.tip-emoji { font-size: 2.6rem; margin-bottom: 16px; display: inline-block; animation: float 5s ease-in-out infinite; }
+.tip-title { font-family: var(--font-head); font-size: 1.1rem; font-weight: 700; margin-bottom: 10px; letter-spacing: -0.02em; }
+.tip-text { font-size: 13px; color: var(--text2); line-height: 1.75; font-weight: 300; }
+.tip-badge {
+  display: inline-block; margin-top: 16px; font-size: 10px;
+  font-weight: 800; padding: 5px 14px; border-radius: 100px;
+  letter-spacing: 0.08em; text-transform: uppercase;
+}
+.zone-badge-critical { background: var(--red-bg); color: var(--red); }
+.zone-badge-moderate { background: var(--yellow-bg); color: var(--yellow); }
+.zone-badge-safe     { background: var(--green-bg); color: var(--green); }

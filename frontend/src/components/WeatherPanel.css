@@ -1,0 +1,54 @@
+/* WeatherPanel.css — Premium */
+.weather-card { }
+
+.city-search { display: flex; gap: 6px; margin-bottom: 20px; }
+.city-input {
+  flex: 1; background: var(--surface3);
+  border: 1px solid var(--border);
+  border-radius: 9px; padding: 9px 14px;
+  color: var(--text); font-family: var(--font-body);
+  font-size: 13px; outline: none; transition: border-color 0.2s, box-shadow 0.2s;
+}
+.city-input:focus { border-color: var(--fire); box-shadow: 0 0 0 3px rgba(255,94,26,0.1); }
+.city-input::placeholder { color: var(--text3); }
+.city-btn {
+  background: var(--surface3); border: 1px solid var(--border);
+  border-radius: 9px; padding: 9px 13px; cursor: pointer;
+  font-size: 15px; transition: all 0.2s; color: var(--text2);
+}
+.city-btn:hover { border-color: var(--fire); }
+
+.weather-main { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px; }
+.weather-temp {
+  font-family: var(--font-head); font-size: 4rem; font-weight: 700;
+  line-height: 1; letter-spacing: -0.04em;
+  background: linear-gradient(135deg, var(--fire) 0%, var(--fire2) 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  filter: drop-shadow(0 0 20px rgba(255,94,26,0.35));
+}
+.weather-feels { font-size: 12px; color: var(--text3); margin-top: 4px; font-weight: 500; }
+.weather-city { font-size: 15px; font-weight: 600; margin-top: 10px; letter-spacing: -0.01em; }
+.weather-desc { font-size: 12px; color: var(--text2); margin-top: 3px; text-transform: capitalize; }
+.weather-icon-big { font-size: 3.5rem; filter: drop-shadow(0 4px 12px rgba(0,0,0,0.3)); }
+
+.weather-stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.w-stat {
+  background: var(--surface3); border-radius: 12px; padding: 14px;
+  border: 1px solid var(--border);
+  transition: border-color 0.2s;
+}
+.w-stat:hover { border-color: var(--border2); }
+.w-stat-lbl {
+  font-size: 10px; color: var(--text3); font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 6px;
+}
+.w-stat-val { font-size: 1.4rem; font-weight: 700; font-family: var(--font-head); letter-spacing: -0.02em; }
+.w-stat-val.humid { color: var(--blue); }
+.w-stat-val.wind  { color: var(--teal); }
+.w-stat-val.uv    { color: var(--yellow); }
+.w-stat-val.hot   { color: var(--fire2); }
+
+.weather-updated {
+  font-size: 11px; color: var(--text3); margin-top: 12px;
+  text-align: right; letter-spacing: 0.02em;
+}

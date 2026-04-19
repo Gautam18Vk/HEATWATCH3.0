@@ -1,0 +1,340 @@
+/* ═══════════════════════════════════════════════════════════════
+   HeatWatch — Premium UI Design System
+   Aesthetic: Cinematic dark luxury · Sci-fi environmental monitor
+   Fonts: Clash Display (headings) + Cabinet Grotesk (body)
+   ═══════════════════════════════════════════════════════════════ */
+
+@import url('https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&f[]=cabinet-grotesk@300,400,500,700&display=swap');
+
+/* ── Design Tokens ─────────────────────────────────────────── */
+:root {
+  /* Base palette */
+  --bg:        #060910;
+  --bg2:       #0a0f1c;
+  --bg3:       #0e1525;
+  --surface:   #111827;
+  --surface2:  #16202f;
+  --surface3:  #1c2b3f;
+
+  /* Borders */
+  --border:    rgba(255,255,255,0.055);
+  --border2:   rgba(255,255,255,0.10);
+  --border3:   rgba(255,255,255,0.18);
+
+  /* Text */
+  --text:      #f0f4ff;
+  --text2:     #7d8fa8;
+  --text3:     #3f5068;
+
+  /* Brand / accent */
+  --fire:      #ff5e1a;
+  --fire2:     #ff8c42;
+  --fire-glow: rgba(255,94,26,0.22);
+
+  /* Status colors */
+  --green:     #10d97a;
+  --green-bg:  rgba(16,217,122,0.10);
+  --green-glow:rgba(16,217,122,0.20);
+  --yellow:    #ffb800;
+  --yellow-bg: rgba(255,184,0,0.10);
+  --red:       #ff3b5c;
+  --red-bg:    rgba(255,59,92,0.10);
+  --red-glow:  rgba(255,59,92,0.25);
+
+  /* Utility */
+  --blue:      #4d9fff;
+  --blue-bg:   rgba(77,159,255,0.10);
+  --teal:      #00d4c8;
+
+  /* Typography */
+  --font-head: 'Clash Display', sans-serif;
+  --font-body: 'Cabinet Grotesk', sans-serif;
+
+  /* Spacing */
+  --radius:    14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+}
+
+/* ── Reset & Base ───────────────────────────────────────────── */
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.65;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--surface3); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--fire); }
+
+/* ── Global ambient background ──────────────────────────────── */
+body::before {
+  content: '';
+  position: fixed; inset: 0; z-index: 0; pointer-events: none;
+  background:
+    radial-gradient(ellipse 80% 50% at 70% -10%, rgba(255,94,26,0.07) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at -10% 60%, rgba(77,159,255,0.05) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 30% at 50% 100%, rgba(16,217,122,0.04) 0%, transparent 60%);
+}
+
+/* Animated grid lines */
+body::after {
+  content: '';
+  position: fixed; inset: 0; z-index: 0; pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.012) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.012) 1px, transparent 1px);
+  background-size: 80px 80px;
+  mask-image: radial-gradient(ellipse 100% 100% at 50% 50%, black 30%, transparent 100%);
+}
+
+/* ── Layout Utilities ───────────────────────────────────────── */
+.section {
+  padding: 90px 2.5rem;
+  max-width: 1280px;
+  margin: 0 auto;
+  position: relative; z-index: 1;
+}
+.full-section { padding: 90px 2.5rem; position: relative; z-index: 1; }
+.full-inner { max-width: 1280px; margin: 0 auto; }
+.divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, var(--border2) 30%, var(--border2) 70%, transparent 100%);
+  margin: 0 2.5rem;
+  position: relative; z-index: 1;
+}
+
+/* ── Typography ─────────────────────────────────────────────── */
+.section-tag {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 11px; font-weight: 600; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--fire);
+  margin-bottom: 1.2rem;
+  font-family: var(--font-body);
+}
+.section-tag::before {
+  content: '';
+  display: inline-block; width: 20px; height: 2px;
+  background: var(--fire); border-radius: 2px;
+}
+
+.section-title {
+  font-family: var(--font-head);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, var(--text) 0%, rgba(240,244,255,0.6) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.section-sub {
+  color: var(--text2); max-width: 480px; line-height: 1.8;
+  font-size: 14px; font-weight: 300;
+}
+
+/* ── Premium Card ───────────────────────────────────────────── */
+.card {
+  background: linear-gradient(145deg, var(--surface) 0%, var(--surface2) 100%);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  position: relative; overflow: hidden;
+  transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+}
+.card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.12), transparent);
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+.card:hover {
+  border-color: var(--border2);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,94,26,0.06);
+}
+
+.card-title {
+  font-size: 10px; font-weight: 700;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--text3); margin-bottom: 20px;
+  display: flex; align-items: center; gap: 10px;
+  font-family: var(--font-body);
+}
+.card-title::after {
+  content: '';
+  flex: 1; height: 1px;
+  background: linear-gradient(90deg, var(--border2), transparent);
+}
+
+/* ── Risk Badges ────────────────────────────────────────────── */
+.risk-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 8px 16px; border-radius: 100px;
+  font-weight: 700; font-size: 11px;
+  letter-spacing: 0.08em; font-family: var(--font-body);
+}
+.risk-critical {
+  background: var(--red-bg);
+  color: var(--red);
+  border: 1px solid rgba(255,59,92,0.25);
+  box-shadow: 0 0 20px rgba(255,59,92,0.1);
+}
+.risk-moderate {
+  background: var(--yellow-bg);
+  color: var(--yellow);
+  border: 1px solid rgba(255,184,0,0.25);
+}
+.risk-safe {
+  background: var(--green-bg);
+  color: var(--green);
+  border: 1px solid rgba(16,217,122,0.25);
+  box-shadow: 0 0 20px rgba(16,217,122,0.08);
+}
+.risk-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  animation: pulse 2s ease-in-out infinite;
+}
+.risk-dot.critical { background: var(--red); box-shadow: 0 0 6px var(--red); }
+.risk-dot.moderate { background: var(--yellow); }
+.risk-dot.safe     { background: var(--green); box-shadow: 0 0 6px var(--green); }
+
+/* ── Buttons ────────────────────────────────────────────────── */
+.btn-primary {
+  position: relative; overflow: hidden;
+  background: linear-gradient(135deg, var(--fire) 0%, #e03500 100%);
+  color: #fff; border: none; border-radius: 10px;
+  padding: 13px 28px; font-size: 13px; font-weight: 700;
+  cursor: pointer; font-family: var(--font-body);
+  letter-spacing: 0.04em;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 20px rgba(255,94,26,0.35), inset 0 1px 0 rgba(255,255,255,0.15);
+}
+.btn-primary::before {
+  content: '';
+  position: absolute; top: 0; left: -100%;
+  width: 100%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+  transition: left 0.4s;
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(255,94,26,0.45); }
+.btn-primary:hover::before { left: 100%; }
+.btn-primary:active { transform: translateY(0); }
+
+.btn-outline {
+  background: rgba(255,255,255,0.04);
+  color: var(--text);
+  border: 1px solid var(--border2);
+  border-radius: 10px; padding: 13px 28px;
+  font-size: 13px; font-weight: 600;
+  cursor: pointer; font-family: var(--font-body);
+  letter-spacing: 0.03em;
+  transition: all 0.2s;
+  backdrop-filter: blur(8px);
+}
+.btn-outline:hover { background: rgba(255,255,255,0.08); border-color: var(--border3); }
+.btn-sm { padding: 7px 16px; font-size: 12px; border-radius: 8px; }
+
+/* ── Form elements ──────────────────────────────────────────── */
+.form-group { display: flex; flex-direction: column; gap: 8px; }
+.form-group label {
+  font-size: 11px; font-weight: 700; color: var(--text3);
+  letter-spacing: 0.12em; text-transform: uppercase;
+  font-family: var(--font-body);
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+  background: var(--surface3);
+  border: 1px solid var(--border);
+  border-radius: 10px; padding: 12px 16px;
+  color: var(--text); font-family: var(--font-body);
+  font-size: 14px; outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--fire);
+  box-shadow: 0 0 0 3px rgba(255,94,26,0.12);
+}
+.form-group input::placeholder { color: var(--text3); }
+.form-group select option { background: var(--surface); }
+.form-group textarea { resize: vertical; min-height: 90px; }
+
+/* ── Animations ─────────────────────────────────────────────── */
+@keyframes pulse {
+  0%,100% { opacity: 1; transform: scale(1); }
+  50%      { opacity: 0.5; transform: scale(1.4); }
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes glow-pulse {
+  0%,100% { box-shadow: 0 0 20px rgba(255,94,26,0.15); }
+  50%      { box-shadow: 0 0 40px rgba(255,94,26,0.35); }
+}
+@keyframes scan {
+  0%   { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+@keyframes float {
+  0%,100% { transform: translateY(0px); }
+  50%      { transform: translateY(-8px); }
+}
+
+.fade-in { animation: fadeUp 0.5s ease forwards; }
+.spin     { animation: spin 0.9s linear infinite; }
+
+/* ── Loading ────────────────────────────────────────────────── */
+.loading-overlay {
+  display: flex; align-items: center; justify-content: center;
+  gap: 14px; padding: 50px; color: var(--text2); font-size: 13px;
+  font-weight: 500; letter-spacing: 0.03em;
+}
+.spinner {
+  width: 18px; height: 18px;
+  border: 2px solid var(--border2);
+  border-top-color: var(--fire);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+/* ── Leaflet overrides ──────────────────────────────────────── */
+.leaflet-container { border-radius: 0 0 var(--radius-lg) var(--radius-lg); }
+.leaflet-popup-content-wrapper {
+  background: var(--surface) !important;
+  border: 1px solid var(--border2) !important;
+  color: var(--text) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.05) !important;
+}
+.leaflet-popup-tip { background: var(--surface) !important; }
+.leaflet-control-zoom a {
+  background: var(--surface) !important;
+  color: var(--text) !important;
+  border-color: var(--border) !important;
+}
+.leaflet-control-zoom a:hover { background: var(--surface2) !important; }
+.leaflet-tile { filter: brightness(0.85) saturate(0.8); }
+
+/* ── Responsive ─────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .section     { padding: 60px 1.2rem; }
+  .full-section{ padding: 60px 1.2rem; }
+  .divider     { margin: 0 1.2rem; }
+}

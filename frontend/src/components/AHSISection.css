@@ -1,0 +1,19 @@
+/* AHSISection.css — Premium */
+.science-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(215px,1fr)); gap: 16px; margin-top: 2.5rem; }
+.science-card { transition: all 0.25s; }
+.science-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0,0,0,0.3); }
+.sci-animal { font-size: 2.5rem; margin-bottom: 10px; animation: float 5s ease-in-out infinite; display: inline-block; }
+.sci-name { font-weight: 700; font-size: 14px; margin-bottom: 16px; font-family: var(--font-head); letter-spacing: -0.01em; }
+.sci-rows { display: flex; flex-direction: column; gap: 10px; margin-bottom: 14px; }
+.sci-row { display: flex; align-items: center; gap: 8px; font-size: 11px; }
+.sci-lbl { color: var(--text3); width: 58px; flex-shrink: 0; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; font-size: 10px; }
+.sci-val { font-weight: 700; font-size: 11px; width: 82px; flex-shrink: 0; }
+.sci-val.safe { color: var(--green); }
+.sci-val.mod  { color: var(--yellow); }
+.sci-val.crit { color: var(--red); }
+.sci-bar { flex: 1; height: 3px; border-radius: 2px; background: var(--surface3); overflow: hidden; }
+.sci-fill { height: 100%; border-radius: 2px; }
+.sci-note {
+  font-size: 11px; color: var(--text3); line-height: 1.7;
+  padding-top: 12px; border-top: 1px solid var(--border); font-weight: 400;
+}
